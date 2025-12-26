@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fizyoterapi Egzersizleri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="bg"></div>
+    <header class="topbar">
+      <div class="branding">
+        <div class="mark">FX</div>
+        <div>
+          <p class="eyebrow">Hasta modu</p>
+          <strong>Günlük egzersizler</strong>
+        </div>
+      </div>
+      <div class="status">
+        <span class="dot live"></span>
+        <span>Hazır</span>
+      </div>
+    </header>
+
+    <div id="noticeBar" class="notice" role="status" aria-live="polite">
+      Sakin mod hazır. Programı seçerek başlayın.
+    </div>
+
+    <main>
+      <section id="programsView" class="view">
+        <div class="hero">
+          <div>
+            <p class="eyebrow">Bugünün planı</p>
+            <h1>Akışa dokun, başla.</h1>
+            <p class="muted">Hazır programlar; sadece başlat, hareketi izle ve tamamla.</p>
+          </div>
+          <div class="hero-meta">
+            <div class="pill">Kişiselleştirme gerekmez</div>
+            <div class="pill">Adım adım rehber</div>
+          </div>
+        </div>
+        <p class="hint">Sıradaki programlar</p>
+        <div id="programGrid" class="card-grid"></div>
+      </section>
+
+      <section id="programDetailView" class="view hidden">
+        <button class="ghost" data-action="back-home">← Ana sayfa</button>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Program</p>
+            <h1 id="programTitle"></h1>
+            <p id="programFocus" class="muted"></p>
+          </div>
+          <div class="pill" id="programDuration"></div>
+        </div>
+        <div id="exerciseList" class="stack"></div>
+      </section>
+
+      <section id="playerView" class="view hidden">
+        <button class="ghost" data-action="back-program">← Programa dön</button>
+        <div class="player">
+          <div class="player-header">
+            <div>
+              <p class="eyebrow" id="playerProgramName"></p>
+              <h2 id="playerExerciseName"></h2>
+              <p id="playerCue" class="muted"></p>
+            </div>
+            <div class="pill" id="playerTempo"></div>
+          </div>
+          <div class="demo-shell">
+            <div class="demo-figure" id="demoFigure" aria-label="Egzersiz gösterimi" data-motion="arm-raise">
+              <svg viewBox="0 0 140 180" role="presentation" aria-hidden="true">
+                <circle class="head" cx="70" cy="28" r="10" />
+                <line class="spine" x1="70" y1="38" x2="70" y2="102" />
+                <g class="arm left">
+                  <line x1="70" y1="56" x2="36" y2="82" />
+                </g>
+                <g class="arm right">
+                  <line x1="70" y1="56" x2="104" y2="82" />
+                </g>
+                <g class="leg left">
+                  <line x1="70" y1="102" x2="52" y2="142" />
+                </g>
+                <g class="leg right">
+                  <line x1="70" y1="102" x2="90" y2="142" />
+                </g>
+                <circle class="anchor" cx="70" cy="142" r="3" />
+              </svg>
+              <div class="demo-overlay" id="demoOverlay"></div>
+            </div>
+          </div>
+          <div class="player-controls">
+            <div class="music-card">
+              <div>
+                <p class="eyebrow">Arka plan müziği</p>
+                <p class="music-title" id="musicLabel">Hafif Piyano · Pixabay</p>
+              </div>
+              <button id="musicToggle" class="tinted">Müziği başlat</button>
+            </div>
+            <div class="chips">
+              <span id="setsChip"></span>
+              <span id="repsChip"></span>
+              <span id="holdChip"></span>
+            </div>
+            <div class="progress-panel">
+              <div class="count">
+                <p class="label">Set</p>
+                <strong id="setCount">1/1</strong>
+              </div>
+              <div class="count">
+                <p class="label">Tekrar</p>
+                <strong id="repCount">0/0</strong>
+              </div>
+              <div class="timer">
+                <div id="timerDisplay">00:00</div>
+                <div class="timer-buttons">
+                  <button id="timerToggle" class="primary">Başlat</button>
+                  <button id="timerReset" class="ghost">Sıfırla</button>
+                </div>
+              </div>
+            </div>
+            <div class="action-row">
+              <button id="repIncrement" class="primary">Tekrar +1</button>
+              <button id="setIncrement" class="secondary">Seti tamamla</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
