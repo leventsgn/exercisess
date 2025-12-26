@@ -43,6 +43,47 @@ const programs = [
     ],
   },
   {
+    id: "neck-relax",
+    title: "Boyun Rahatlat",
+    focus: "Ofis sonrası gevşeme",
+    duration: "8 dk",
+    accent: "#9f8bff",
+    track: {
+      title: "Lo-Fi Çay Molası",
+      artist: "Pixabay",
+      src: "https://cdn.pixabay.com/download/audio/2022/10/31/audio_e2d8ed579e.mp3?filename=chill-lofi-beat-124114.mp3",
+    },
+    exercises: [
+      {
+        id: "ear-to-shoulder",
+        title: "Kulak-omuz esneme",
+        sets: 2,
+        reps: 8,
+        hold: "5 sn",
+        cue: "Başını yavaşça yana bırak, omuzlar serbest.",
+        motion: "neck-tilt",
+      },
+      {
+        id: "chin-tuck",
+        title: "Çene geriye",
+        sets: 3,
+        reps: 10,
+        hold: "3 sn",
+        cue: "Çeneyi geriye çek, uzun boyun çizgisini hisset.",
+        motion: "core-hold",
+      },
+      {
+        id: "scap-slide",
+        title: "Omuz kaydırma",
+        sets: 2,
+        reps: 12,
+        hold: "2 sn",
+        cue: "Omuzları aşağı kaydır, derin nefes ver.",
+        motion: "arm-raise",
+      },
+    ],
+  },
+  {
     id: "lumbar-stability",
     title: "Bel Dengesi",
     focus: "Lomber stabilizasyon + nefes",
@@ -79,6 +120,47 @@ const programs = [
         reps: 8,
         hold: "5 sn",
         cue: "Kalçayı kaldır, 5 sn bekle ve indir.",
+        motion: "leg-swing",
+      },
+    ],
+  },
+  {
+    id: "knee-friendly",
+    title: "Diz Dostu Güç",
+    focus: "Diz çevresi güç + denge",
+    duration: "9 dk",
+    accent: "#f4b85a",
+    track: {
+      title: "Enerjik Hafif Beat",
+      artist: "Pixabay",
+      src: "https://cdn.pixabay.com/download/audio/2022/03/14/audio_2ae700f9de.mp3?filename=feel-good-11875.mp3",
+    },
+    exercises: [
+      {
+        id: "mini-squat",
+        title: "Mini squat",
+        sets: 3,
+        reps: 10,
+        hold: "2 sn",
+        cue: "Kalçayı geriye gönder, dizler öne kaçmasın.",
+        motion: "leg-swing",
+      },
+      {
+        id: "heel-raise",
+        title: "Topuk yükseltme",
+        sets: 3,
+        reps: 12,
+        hold: "1 sn",
+        cue: "Topukları kaldır, dengeyi bul, yavaş indir.",
+        motion: "arm-arc",
+      },
+      {
+        id: "step-back",
+        title: "Geri adım dokunma",
+        sets: 2,
+        reps: 10,
+        hold: "0 sn",
+        cue: "Kısa geri adım, orta hat stabil kalsın.",
         motion: "leg-swing",
       },
     ],
@@ -157,7 +239,7 @@ function openProgram(programId) {
   programFocus.textContent = currentProgram.focus;
   programDuration.textContent = currentProgram.duration;
   renderExerciseList();
-  setNotice(`${currentProgram.title} için egzersiz listesi hazır.`, "info");
+  setNotice(`${currentProgram.title} açıldı. Kaslar sahneye çıkıyor.`, "info");
 }
 
 function renderExerciseList() {
@@ -205,7 +287,7 @@ function openExercise(exerciseId) {
   updateCounts();
   updateDemo(currentExercise.motion, currentProgram.accent);
   setMusic(currentProgram.track || defaultTrack);
-  setNotice(`${currentExercise.title} başladı. Müziği açıp ritmi yakalayın.`, "success");
+  setNotice(`${currentExercise.title} başladı. DJ hazır, ritmi kaçırmayın.`, "success");
 }
 
 function resetCountsIfNeeded() {
@@ -288,7 +370,7 @@ function goHome() {
   programsView.classList.remove("hidden");
   resetTimer();
   pauseMusic();
-  setNotice("Program seçip devam edin.", "info");
+  setNotice("Program seçip devam edin. Sahne sizin.", "info");
 }
 
 function backToProgram() {
@@ -296,7 +378,7 @@ function backToProgram() {
   programDetailView.classList.remove("hidden");
   resetTimer();
   pauseMusic();
-  setNotice("Program görünümüne döndünüz.", "info");
+  setNotice("Program görünümüne döndünüz. Derin nefes, devam!", "info");
 }
 
 function setMusic(track) {
@@ -309,7 +391,7 @@ function setMusic(track) {
     setNotice("Tarayıcı müziği otomatik başlatamadı, lütfen 'Müziği başlat' tuşuna dokunun.", "warn");
   });
   updateMusicButton();
-  setNotice("Sakinleştirici müzik yüklendi.", "success");
+  setNotice("Playlist hazır. Kulaklarınız için küçük bir teşekkür.", "success");
 }
 
 function toggleMusic() {
